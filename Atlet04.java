@@ -5,36 +5,31 @@ public class Atlet04 {
     public static void main(String [] args) {
         Scanner scan04 = new Scanner(System.in);
 
-        String[] atletBadminton = {"Anita", "Budi", "Citra", "Dewi", "Eko"};
-        String[] atletTenisMeja = {"Fandi", "Gita", "Hana", "Indra", "Joko"};
-        String[] atletBasket = {"Kevin", "Lina", "Mira", "Nina", "Oscar"};
-        String[] atletBolaVoly = {"Putri", "Qori", "Rudi", "Sari", "Tono"};
+            String[][] dataAtletPercabang = {
+            {"Badminton", "Nova", "Lelyta", "Dhiya", "Annisa", "Salsa"},
+            {"Tenis Meja", "Vanesa", "Yefta", "Hikmah", "Fajar", "Erik"},
+            {"Basket", "Diyaz", "Heru", "Billy", "Tora", "Gilang"},
+            {"Bola Voly", "Gege", "Haqi", "Aziz", "Rocky", "Wahib"}
+        };
 
-        // Mengurutkan nama atlet secara ascending untuk setiap cabang olahraga
-        Arrays.sort(atletBadminton);
-        Arrays.sort(atletTenisMeja);
-        Arrays.sort(atletBasket);
-        Arrays.sort(atletBolaVoly);
+        
+        for (int i = 0; i < dataAtletPercabang.length; i++) {
+            for (int j = 1; j < dataAtletPercabang[i].length - 1; j++) {
+                for (int k = j + 1; k < dataAtletPercabang[i].length; k++) {
+                    if (dataAtletPercabang[i][j].compareTo(dataAtletPercabang[i][k]) > 0) {
+                        String temp = dataAtletPercabang[i][j];
+                        dataAtletPercabang[i][j] = dataAtletPercabang[i][k];
+                        dataAtletPercabang[i][k] = temp;
+                    }
+                }
+            }
 
-        // Menampilkan nama atlet yang sudah diurutkan
-        System.out.println("Daftar Atlet Badminton:");
-        for (String atlet : atletBadminton) {
-            System.out.println(atlet);
-        }
-
-        System.out.println("\nDaftar Atlet Tenis Meja:");
-        for (String atlet : atletTenisMeja) {
-            System.out.println(atlet);
-        }
-
-        System.out.println("\nDaftar Atlet Basket:");
-        for (String atlet : atletBasket) {
-            System.out.println(atlet);
-        }
-
-        System.out.println("\nDaftar Atlet Bola Voly:");
-        for (String atlet : atletBolaVoly) {
-            System.out.println(atlet);
+            
+            System.out.println("Data Cabang " + dataAtletPercabang[i][0] + " (ascending):");
+            for (int j = 1; j < dataAtletPercabang[i].length; j++) {
+                System.out.println(dataAtletPercabang[i][j]);
+            }
+            System.out.println();
         }
     }
 }
